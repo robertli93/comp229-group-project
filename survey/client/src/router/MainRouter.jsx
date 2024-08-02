@@ -11,9 +11,11 @@ function MainRouter() {
     <div>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/team" element={<Team/>} />
         <Route path="/login" element={<Login/>} />
+        {/* todo */}
+        {/* <Route path="/account" element={<Account/>} /> */}
       </Routes>
       <Footer/>
     </div>
