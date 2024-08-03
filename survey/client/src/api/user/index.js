@@ -28,11 +28,19 @@ export const getUserProfile = async ({ username, email, password }) => {
 };
 
 export const updateUserProfile = async ({ username, email, password }) => {
-    const obj = {
-        username,
-        email,
-        password,
-      }
+  const obj = {
+    username,
+    email,
+    password,
+  };
+  // filter out undefined properties
+  const filteredObj = Object.keys(obj).reduce((acc, key) => {
+    if (obj[key] !== undefined) {
+      acc[key] = obj[key];
+    }
+    return acc;
+  }, {});
+
   try {
     let response = await fetch("/api/users/me", {
       method: "PUT",
@@ -41,7 +49,7 @@ export const updateUserProfile = async ({ username, email, password }) => {
         "Content-Type": "application/json",
         "x-auth-token": useGlobalStore.getState().token,
       },
-      body: JSON.stringify(Object.keys(obj).forEach(key => obj[key] === undefined ? delete obj[key] : {})),
+      body: JSON.stringify(filteredObj),
     });
     const body = await response.json();
     if (response.status >= 400) {
@@ -60,7 +68,7 @@ export const updateUserProfile = async ({ username, email, password }) => {
   }
 };
 
-export const deleteUser = async ({ username, email, password }) => {
+export const deleteUser = async () => {
   console.log("called delete user");
   try {
     let response = await fetch("/api/users/me", {
