@@ -7,7 +7,8 @@ function NavBarButton({ href, pattern, children }) {
     <Link
       to={href}
       className={cn("transition-colors hover:text-foreground/80 text-foreground/60", {
-        "text-foreground":isActive
+        "text-foreground":isActive,
+        "font-bold":isActive
       })}
     >
       {children}
