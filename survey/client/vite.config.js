@@ -21,6 +21,10 @@ export default defineConfig({
         target: `http://localhost:${PORT}`,
         changeOrigin: true,
       },
+      '/users': {
+        target: `http://localhost:${PORT}`,
+        changeOrigin: true,
+      },
     },
   },
 })

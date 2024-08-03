@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
 import Team from "@/pages/Team";
 import Login from "@/pages/Login";
+import UserProfile from "@/pages/UserProfile";
 
 function MainRouter() {
   return (
@@ -14,6 +15,7 @@ function MainRouter() {
         <Route path="/" element={<Home/>} />
         <Route path="/team" element={<Team/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/user-profile" element={<UserProfile/>} />
         {/* todo */}
         {/* <Route path="/account" element={<Account/>} /> */}
       </Routes>
