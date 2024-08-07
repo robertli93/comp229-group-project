@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path';
 const PORT = 5000
+const PROD_URL = "https://comp229-groupproject-be.onrender.com"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,15 +15,15 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: `http://localhost:${PORT}`,
+        target: PROD_URL,
         changeOrigin: true,
       },
       '/auth': {
-        target: `http://localhost:${PORT}`,
+        target: PROD_URL,
         changeOrigin: true,
       },
       '/users': {
-        target: `http://localhost:${PORT}`,
+        target: PROD_URL,
         changeOrigin: true,
       },
     },
