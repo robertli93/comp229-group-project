@@ -13,6 +13,7 @@ export default defineConfig({
     },
   },
   server: {
+    port: process.env.PORT || 4000,
     proxy: {
       '/api': {
         target: PROD_URL,
